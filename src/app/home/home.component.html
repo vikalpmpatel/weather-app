@@ -1,0 +1,27 @@
+<div class="card" style="margin-top:10px;width: 25rem;" *ngIf="current">
+<div class="card-body">
+    <h5 class="card-title">Today </h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{cityName}} : {{current?.main.temp}} &#8457;<img src="http://openweathermap.org/img/w/{{current?.weather[0]?.icon}}.png">{{current?.weather[0]?.description}}</h6>
+    <p class="card-text">{{current?.date}}<br>
+        Max: {{current?.main.temp_max}} &#8457;
+        <br>
+        Min: {{current?.main.temp_min}} &#8457;</p>
+</div>
+</div>
+
+
+<div class="card" style="margin-top:10px;width: 25rem;" *ngIf="current">
+        <div class="card-body">
+            <h5 class="card-title">Forecast </h5>
+            <div class="card" *ngFor="let item of forecast">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.dt_txt | date}} </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{item.main.temp}} &#8457;<img src="http://openweathermap.org/img/w/{{item.weather[0].icon}}.png">{{item.weather[0].description}}</h6>
+                    <p class="card-text">
+                        Max: {{item.main.temp_max}} &#8457;
+                        <br>
+                        Min: {{item.main.temp_min}} &#8457;</p>
+                </div>
+            </div>
+</div>
+</div>
